@@ -22,13 +22,16 @@ from cart import views as cv  #导入购物车
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user/login',uv.userLogin),
+    path('user/login',uv.userLogin), #用户模块
     path('user/register',uv.userRegister),
     path('user/check/uname',uv.userCheckUname),
     path('user/check/phone',uv.userCheckPhone),
-    path('news/list',nv.newsList),
+    path('news/list',nv.newsList), #新闻模块
     path('news/detail',nv.newsDetail),
-    path('product/list',pv.productList),
-    path('product/detail',pv.productDetail)
-    
+    path('product/list',pv.productList), #商品模块
+    path('product/detail',pv.productDetail),
+    path('cart/detail/add',cv.cartDetailAdd),#购物车模块
+    path('cart/detail/list',cv.cartDetailList),
+    path('cart/detail/delete',cv.cartDetailDelete),
+    path('cart/detail/update',cv.cartDetailUpdate)
 ]
