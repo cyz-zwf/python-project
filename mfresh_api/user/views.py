@@ -24,7 +24,19 @@ def userLogin( req ):
 
 #注册新用户
 def userRegister( req ):
-    output = {'code':200}
+    print("================================")
+    print("用户在注册")
+    print("================================")
+    #读取客户端提交的请求数据
+    n = req.POST['uname']
+    p = req.POST['upwd']
+    h = req.POST['phone']
+    #执行数据库的添加操作
+    MfUser.objects.create(uname=n,upwd=p,phone=h)
+    if user:       #添加成功
+        output = {'code':1,'uid':user.uid,'uname':user.uname}
+    else :          #添加失败
+        output = {'code':500}
     res = JsonResponse(output,safe=False)
     res['Access-Control-Allow-Origin'] = '*'
     return res
