@@ -27,6 +27,8 @@ urlpatterns = [
     path('user/check/uname',uv.userCheckUname),
     path('user/check/phone',uv.userCheckPhone),
     path('news/list',nv.newsList),
-    path('news/detail',nv.newsDetail)
+    path('news/detail',nv.newsDetail),
+    path('product/list',pv.productList),
+    path('product/detail',pv.productDetail)
     
 ]
