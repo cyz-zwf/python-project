@@ -61,8 +61,14 @@ def userCheckUname( req ):
 
 #验证电话号码是否已经存在
 def userCheckPhone( req ):
-    output = {'code':200}
+    p = req.GET['phone']
+    result = MfUser.objects.filter(phone=p)
+    if len(result)>0:
+        output = {'code':1,'msg':'exisit'}
+    else:
+        output = {'code':2,'msg':'non-exisit'}
     res = JsonResponse(output,safe=False)
     res['Access-Control-Allow-Origin'] = '*'
     return res
 
+#测试:http://127.0.0.1:8000/user/check/phone?phone=13501111111
