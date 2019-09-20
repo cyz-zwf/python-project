@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from news.models import MfNews
+from user.models import MfNews
 import math 
 
 # Create your views here.
