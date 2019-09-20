@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from user import views as uv  #导入用户
+from news import views as nv  #导入新闻
+from product import views as pv  #导入商品
+from cart import views as cv  #导入购物车
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('user/login',uv.userLogin),
+    path('user/register',uv.userRegister),
+    path('user/check/uname',uv.userCheckUname),
+    path('user/check/phone',uv.userCheckPhone),
+    
 ]
