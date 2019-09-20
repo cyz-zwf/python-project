@@ -1,0 +1,3 @@
+#主App中注册使用pymysql提供的数据库驱动
+import pymysql
+pymysql.install_as_MySQLdb()

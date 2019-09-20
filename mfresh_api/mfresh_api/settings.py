@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+#自定义的App必须在此处注册 
 INSTALLED_APPS = [
     'user',
     'news',
@@ -77,10 +77,15 @@ WSGI_APPLICATION = 'mfresh_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+#在主App中指定MySQL服务器的连接参数  
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mfresh',
+        'HOST': '127.0.0.1',
+        'POST':'3306',
+        'USER':'root',
+        'PASSWORD':'',
     }
 }
 

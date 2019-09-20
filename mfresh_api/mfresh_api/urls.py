@@ -20,7 +20,38 @@ from news import views as nv  #导入新闻
 from product import views as pv  #导入商品
 from cart import views as cv  #导入购物车
 
+
+from user.models import MfUser 
+from django.http import JsonResponse
+
+#测试:向数据库中添加一条记录
+def testAdd(req):
+    u = MfUser.objects.create(uname='ding',upwd='9999',phone='13189956435')
+    print(u,type(u))
+    return JsonResponse({})
+
+#测试:向数据库中删除一条记录
+def testdelete():
+    pass
+#测试:向数据库中修改一条记录
+def testupdate():
+    pass
+#测试:查询所有记录
+def testAll():
+    pass
+#测试:查询一行记录
+def testone():
+    pass
+
+
+
 urlpatterns = [
+    path('test/add',testAdd), #测试
+    #path('test/testdelete',testdelete),
+    #path('test/testupdate',testupdate),
+    #path('test/testAll',testAll),
+    #path('test/testone',testone), 
+
     path('admin/', admin.site.urls),
     path('user/login',uv.userLogin), #用户模块
     path('user/register',uv.userRegister),
@@ -33,5 +64,7 @@ urlpatterns = [
     path('cart/detail/add',cv.cartDetailAdd),#购物车模块
     path('cart/detail/list',cv.cartDetailList),
     path('cart/detail/delete',cv.cartDetailDelete),
-    path('cart/detail/update',cv.cartDetailUpdate)
+    path('cart/detail/update',cv.cartDetailUpdate),
+
+    
 ]
