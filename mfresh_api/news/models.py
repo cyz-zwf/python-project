@@ -1,3 +1,6 @@
+from django.db import models
+
+
 class MfNews(models.Model):
     nid = models.AutoField(primary_key=True)
     title = models.CharField(max_length=64, blank=True, null=True)
