@@ -43,10 +43,21 @@ def userRegister( req ):
 
 #验证用户名是否已经存在
 def userCheckUname( req ):
-    output = {'code':200}
+    #接收客户端请求数据
+    n = req.GET['uname']
+    #执行数据库操作 SELECT * FROM mf_user WHERE uname=?
+    result =  MfUser.objects.filter(uname=n)
+    if len(result)>0: #查询到该用户对应记录
+        output = {'code':1,'msg':'exists'}
+    else:     #未查询到该用户记录
+        output = {'code':2 , 'msg':'non-exisit'}
     res = JsonResponse(output,safe=False)
     res['Access-Control-Allow-Origin'] = '*'
     return res
+
+#测试代码 : http://127.0.0.1:8000/user/check/uname?uname=admin 
+
+
 
 #验证电话号码是否已经存在
 def userCheckPhone( req ):
